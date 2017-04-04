@@ -1,4 +1,4 @@
-# Migrate-WordPress
+`# Migrate-WordPress
 MySQL sources to Migrate from WordPress to Drupal 8
 Do not forget to add access to wordpress db on your mysql server
 by adding below lines to your settings.php file
@@ -29,4 +29,9 @@ then enable modules:
 then enable
 - Migrate Wordpress; 
 
+then see available migrations
+drush --no-halt-on-error ms
+
+then run migration
+drush --no-halt-on-error mi --group=wp
 
