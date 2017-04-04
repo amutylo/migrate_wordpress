@@ -1,0 +1,14 @@
+id: wp_terms
+label: WordPress category terms.
+migration_group: wp
+source:
+  plugin: wp_term
+  table_prefix: wp_ctt_
+  constants:
+    vid: tags
+process:
+  tid: term_id
+  vid: 'constants/vid'
+  name: name
+destination:
+  plugin: entity:taxonomy_term

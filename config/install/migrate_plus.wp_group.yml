@@ -1,0 +1,16 @@
+id: wp
+# A human-friendly label for the group.
+label: Wordpress Imports
+# More information about the group.
+description: Import content from Wordpress site.
+# Short description of the type of source, e.g. "Drupal 6" or "WordPress".
+source_type: WordPress
+
+shared_configuration:
+  # Specifying 'source' here means that this configuration will be merged into
+  # the 'source' configuration of each migration.
+  source:
+    # A better practice for real-world migrations would be to add a database
+    # connection to your external database in settings.php and reference its
+    # key here.
+    key: migrate_wordpress

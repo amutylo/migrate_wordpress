@@ -1,0 +1,33 @@
+id: wp_post_alias
+label: WordPress post url aliases.
+migration_group: wp
+source:
+  plugin: wp_post
+  table_prefix: wp_ctt_
+  constants:
+    prefix: /node
+    language: en
+    slash: /
+process:
+  source:
+    plugin: concat
+    delimiter: /
+    source:
+      - 'constants/prefix'
+      - ID # ID was preserved to nid
+  alias:
+    -
+      plugin: skip_on_empty
+      method: row
+      source: post_name
+    -
+      plugin: concat
+      delimiter:
+      source:
+        - 'constants/slash'
+        - post_name
+  langcode: 'constants/language'
+destination:
+  plugin: url_alias
+migration_dependencies:
+  - wp_posts
